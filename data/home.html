@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <style>
+
+    </style>
+    <title>Home </title>
+</head>
+<body onload="init()">  
+    <header id="topnav">
+        <div class="inner">
+          <div class="logo">logo</div>
+          <nav role='navigation'>
+            <ul>
+              <li><a href="/" class="act" >Home</a></li>
+              <li><a href="/dashBoard">dashBoard</a></li>
+              <li><a href="/red" >Red</a></li>
+              <li><a href="/conf" >Configuracion</a></li>
+              <li><a href="/cont">Contacto</a></li>
+            </ul>
+          </nav>  
+        </div>
+      </header>
+      <section>
+        <div class="inner">
+
+                    <div class="col-12 ">
+                     
+                            <h1 class="title">Configuracion</h1>
+                            <div class="">
+                                
+                                <div class="col-12">
+                                  
+                                  <label for="" class="col-2">Red </label>
+                                  <label type="text" class="col-5" name="ipserver" id="ipserver"  Red " required="required"  /></label>
+                                </div>
+                                <div class="col-12">
+                                  
+                                  <label for="" class="col-2">Password </label>                                
+                                  <label type="text" class="col-5" name="passowrd" id="passowrd" ></label>
+                                </div>
+                              
+                                <div class="col-12">
+                                  
+                                  <label for="" class="col-2" >Ip </label>                                
+                                  <label type="text" class="col-5" name="ip" id="ip" ></label><br>
+                                </div>
+                                <div class="col-12">
+                                  
+                                  <label for="" class="col-2" >Gateway</label>                                
+                                  <label type="text" class="col-5" name="gateway" id="gateway"     ></label><br>
+                                </div>
+                                <div class="col-12">
+                                  
+                                  <label for="" class="col-2">Subnet</label>                                
+                                  <label type="text" class="col-5" name="subnet" id="subnet"    ></label><br>
+                                </div>
+                                <div class="col-12">
+                                  
+                                  <label for="" class="col-2">correo</label>                                
+                                  <label type="email" class="col-5" name="Correo" id="Correo"></label><br>
+                                </div>
+                                <div class="col-12">
+                                  
+                                  <label for="" class="col-2">Direccion Servidor</label>                                                                
+                                  <label type="text" class="col-5" name="dServer" id="dServer"></label><br>
+                                </div>
+                                <div class="col-12">
+                                  
+                                  <label for="" class="col-2">Base de datos</label>                                
+                                  <label type="text" class="col-5" name="dDatos" id="dDatos"></label><br>
+                                </div>
+                                <div class="col-12">
+                                  
+                                  <label for="" class="col-2">Servidor Mqtt</label>                                
+                                  <label type="text" class="col-5" name="sMqtt" id="sMqtt"></label><br>
+                                </div>
+                                <div class="col-12">
+                                  
+                                <label for="" class="col-2">Nombre id</label>                                
+                                 <label type="number" class="col-5" name="idDevice" id="idDevice"></label><br>
+                                </div>
+                                <div class="col-12">
+                                  
+                                <label for="" class="col-2">Tiempo</label>                                
+                                 <label type="number" class="col-5" name="r1" id="r1"></label><br>
+                                </div>
+                                <div class="col-12">
+                                  
+                                <label for="" class="col-2">usr</label>                                
+                                 <label type="number" class="col-5" name="usrApn" id="usrApn"></label><br>
+                                </div>
+                                <div class="col-12">
+                                  
+                                <label for="" class="col-2">pass</label>                                
+                                 <label type="number" class="col-5" name="pasApn" id="pasApn"></label><br>
+                                </div>
+                                <div class="col-12">
+                                  
+                                <label for="" class="col-2">apn</label>                                
+                                 <label type="number" class="col-5" name="apn" id="apn"></label><br>
+                                </div>
+                            </div>
+                            <div  id="actnodo">
+        
+
+                            </div>
+                            
+                            <span id ="ip"></span>
+                   
+                 
+            </div>
+            </div>
+          </div>
+      </section>
+    
+</body>
+    <script>
+
+    function init(){
+        var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var json = JSON.parse(this.responseText,"text/json");
+           
+                document.getElementById("ipserver").innerHTML = json.host;
+                document.getElementById("passowrd").innerHTML = json.passowrd;
+                document.getElementById("ip").innerHTML = json.ip;
+                document.getElementById("gateway").innerHTML = json.gateway;
+                document.getElementById("subnet").innerHTML = json.subnet;
+                document.getElementById("r1").innerHTML = json.r1;
+                document.getElementById("dServer").innerHTML = json.dServer;
+                document.getElementById("Correo").innerHTML = json.Correo;
+                document.getElementById("dDatos").innerHTML = json.dDatos;
+                document.getElementById("sMqtt").innerHTML = json.sMqtt;
+                document.getElementById("idDevice").innerHTML = json.idDevice;
+                document.getElementById("usrApn").innerHTML = json.usrApn;
+                document.getElementById("pasApn").innerHTML = json.pasApn;
+                document.getElementById("apn").innerHTML = json.apn;
+                }
+            };
+            xhttp.open("GET", "init", true);
+            xhttp.send();
+    }
+
+    </script>
+</html>

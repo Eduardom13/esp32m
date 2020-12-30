@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <style>
+    
+    </style>
+    <title>Datos </title>
+</head>
+<body onload="init()">  
+    <header id="topnav">
+        <div class="inner">
+          <div class="logo">logo</div>
+          <nav role='navigation'>
+            <ul>
+              <li><a href="/" >Home</a></li>
+              <li><a href="/dashBoard">dashBoard</a></li>
+              <li><a href="/red" >Red</a></li>
+              <li><a href="/conf" class="act">Configuracion</a></li>
+              <li><a href="/cont">Contacto</a></li>
+            </ul>
+          </nav>  
+        </div>
+      </header>
+      <section>
+        <div class="inner">
+                    <div class="col-12 ">
+                            <h1 class="title">Datos</h1>
+                            <div class="">
+                                
+                              <div class="col-12">
+                                
+                                <label for="" class="col-2">Correo</label>                                
+                                <input type="email" class="col-5" name="Correo" id="Correo" placeholder="Correo " required="required" value="demo@gmail.com"  /><br>
+                              </div>
+                              <div class="col-12">
+                                
+                                <label for="" class="col-2">Direccion Servidor</label>                                                                
+                                <input type="text" class="col-5" name="dServer" id="dServer" placeholder="Direccion Servidor " required="required"  value="emsolucionesenergeticas.tk" /><br>
+                              </div>
+                              <div class="col-12">
+                                
+                                <label for="" class="col-2">Base de datos</label>                                
+                                <input type="text" class="col-5" name="dDatos" id="dDatos" placeholder="Base de datos" required="required"  value="http://emsolucionesenergeticas.tk/datologia" /><br>
+                              </div>
+                              <div class="col-12">
+                                
+                                <label for="" class="col-2">Servidor Mqtt</label>                                
+                                <input type="text" class="col-5" name="sMqtt" id="sMqtt" placeholder="subnet " required="required"  value="emsolucionesenergeticas.tk"  /><br>
+                              </div>
+                              <div class="col-12">
+                                
+                                <label for="" class="col-2">Nombre id</label>                                
+                                <input type="number" class="col-5" name="idDevice" id="idDevice" placeholder="Nombre id" required="required"  value="123456789" /><br>
+                              </div>
+                              <div class="col-12">
+
+                                <label for="" class="col-2" >Tiempo </label>                                
+                                <input type="text" class="col-5" name="r1" id="r1" placeholder="Tiempo Relay En Seg" required="required"  value="3"  /><br>
+                              </div>
+                              <div class="col-12">
+
+                                <label for="" class="col-2" >usr </label>                                
+                                <input type="text" class="col-5" name="usrApn" id="usrApn" placeholder="" required="required"  value="3"  /><br>
+                              </div>
+                              <div class="col-12">
+
+                                <label for="" class="col-2" >passApn </label>                                
+                                <input type="text" class="col-5" name="pasApn" id="pasApn" placeholder="" required="required"  value="3"  /><br>
+                              </div>
+                              <div class="col-12">
+
+                                <label for="" class="col-2" >Apn </label>                                
+                                <input type="text" class="col-5" name="apn" id="apn" placeholder="Apn" required="required"  value="3"  /><br>
+                              </div>
+                  
+                            </iv>
+                            <div  id="actnodo">
+        
+
+                            </div>
+                            
+                            <span id ="ip"></span>
+                   
+                 
+             
+                <div class="col-12">
+                    <div class="col-5">
+                      <button type="button" class="btn btn-primary " name="button" onclick="enviar()">Guardar</button>
+                      
+                    </div>
+                    <div class="col-5">
+                      <button type="button" class="btn btn-primary " name="button" onclick="reset()">Reset</button>
+                    </div>
+                </div>
+            </div>
+            </div></div>
+      </section>
+    
+</body>
+    <script>
+
+    function init(){
+        var xhttp = new XMLHttpRequest();
+
+            xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var json = JSON.parse(this.responseText,"text/json");
+                document.getElementById("r1").value = json.r1;
+                document.getElementById("mac").innerHTML = json.mac;
+                document.getElementById("dServer").value = json.dServer;
+                document.getElementById("Correo").value = json.Correo;
+                document.getElementById("dDatos").value = json.dDatos;
+                document.getElementById("sMqtt").value = json.sMqtt;
+                document.getElementById("idDevice").value = json.idDevice;
+                document.getElementById("usrApn").value = json.usrApn;
+                document.getElementById("pasApn").value = json.pasApn;
+                document.getElementById("apn").value = json.apn;
+              }
+            };
+            xhttp.open("GET", "datosInit", true);
+            xhttp.send();
+          }
+          function reset(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                
+                document.getElementById("subnet").value =  "";
+                document.getElementById("r1").value = "";
+                document.getElementById("dServer").value = "";
+                document.getElementById("Correo").value = "";
+                document.getElementById("dDatos").value = "";
+                document.getElementById("sMqtt").value = "";
+                document.getElementById("idDevice").value = "";
+                document.getElementById("usrApn").value = "";
+                document.getElementById("pasApn").value = "";
+                document.getElementById("apn").value = "";
+                
+                alert('Reiniciado');
+
+                }
+            };
+  
+            xhttp.open("GET", "reset", true);
+            xhttp.send();
+    }
+
+    function enviar(){
+            var xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+         if (this.readyState == 4 && this.status == 200) {
+       
+            document.getElementById("ip").innerHTML =  this.responseText;
+ 
+            alert("Guardado");
+            }
+         };
+
+         r1 = document.getElementById("r1").value;
+         dServer = document.getElementById("dServer").value;
+         Correo = document.getElementById("Correo").value;
+         dDatos = document.getElementById("dDatos").value;
+         sMqtt = document.getElementById("sMqtt").value;
+         idDevice = document.getElementById("idDevice").value;
+         usrApn = document.getElementById("usrApn").value;
+         pasApn = document.getElementById("pasApn").value;
+         apn = document.getElementById("apn").value;
+ 
+    
+        xhttp.open("GET", "saveDatos?rt1="+ r1 + "&dServer="+dServer + "&dDatos="+dDatos+ "&sMqtt="+sMqtt+ "&idDevice="+idDevice+ "&correo="+Correo 
+        + "&usrApn="+usrApn + "&pasApn="+pasApn + "&apn="+ apn ,true);
+
+       // xhttp.open("GET", "saveValues?"+"values={\"data\":[\""+ipserver + "\",\""+passowrd + "\",\""+ip + "\",\""+gateway + "\",\""+subnet + "\","  +  +r1 + "]}", true);
+        xhttp.timeout = 15000;
+        xhttp.send();
+    }
+    </script>
+</html>
