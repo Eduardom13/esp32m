@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/home/eduardo/.platformio/packages/framework-arduino-avr/cores/arduino",
+                "/home/eduardo/.platformio/packages/framework-arduino-avr/libraries/SPI/src",
+                "/home/eduardo/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
+                "/home/eduardo/.platformio/packages/framework-arduinoespressif8266/cores/esp8266",
+                "/home/eduardo/.platformio/packages/toolchain-xtensa/xtensa-lx106-elf/include",
+                "/home/eduardo/.platformio/packages/toolchain-atmelavr/avr/include"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c11",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}
