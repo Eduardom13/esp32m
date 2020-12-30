@@ -47,6 +47,7 @@
 #endif
 #define uS_TO_S_FACTOR 1000000 /* Conversion factor for micro seconds to seconds */
 #define TIME_TO_SLEEP 10       /* ESP32 should sleep more seconds  (note SIM7000 needs ~20sec to turn off if sleep is activated) */
+#define TIME_TO_SLEEP2 25       /* ESP32 should sleep more seconds  (note SIM7000 needs ~20sec to turn off if sleep is activated) */
 RTC_DATA_ATTR int bootCount = 0;
 
 String ssdit = "", passwordt = "", ip = "", subnet = "", gateway = "", dServer = "", correo = "", dDatos = "", sMqtt = "", usrApn = "", pasApn = "", apn = "";
@@ -268,7 +269,6 @@ void handleinit()
   data += ",\"pasApn\":\"" + pasApn + "\"";
   data += ",\"apn\":\"" + apn + "\"";
   data += ",\"idDevice\":\"" + String(idDevice);
-
   data += "\"}";
   Sprintln(data);
   server.send(200, "text/json", data);
@@ -630,6 +630,8 @@ void setup(void)
       esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP * uS_TO_S_FACTOR);
       Sprintln("Setup ESP32 to sleep for every " + String(TIME_TO_SLEEP) + " Seconds");
       leds[0] = CRGB::Black;
+      FastLED.show();
+
       esp_deep_sleep_start();
       
     }
@@ -642,6 +644,13 @@ void setup(void)
       IPAddress IP = WiFi.softAPIP();
       Sprint("AP IP address: ");
       Sprintln(IP);
+      esp_sleep_enable_timer_wakeup(TIME_TO_SLEEP2 * uS_TO_S_FACTOR);
+      Sprintln("Setup ESP32 to sleep for every " + String(TIME_TO_SLEEP2) + " Seconds");
+      leds[0] = CRGB::Black;
+      FastLED.show();
+
+      esp_deep_sleep_start();
+      
     }
   }
   else
@@ -696,7 +705,6 @@ void setup(void)
   });
   server.begin();
   Sprintln("HTTP server started");
-
   Alarm.timerRepeat(0, 0, 1, showData);
 }
 
