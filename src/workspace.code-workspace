@@ -1,0 +1,150 @@
+{
+	"folders": [
+		{
+			"name": "matrix",
+			"path": "../../../../../../../media/eduardo/Nuevo vol/PlatformIO/Projects/matrix"
+		},
+		{
+			"name": "ultraSonicDetectorWifi",
+			"path": "../../../../../../../media/eduardo/Nuevo vol/PlatformIO/Projects/ultraSonicDetectorWifi"
+		},
+		{
+			"name": "sinricProDevices",
+			"path": "../../../../../../../media/eduardo/Nuevo vol/PlatformIO/Projects/sinricProDevices"
+		},
+		{
+			"name": "nextion",
+			"path": "../../nextion"
+		},
+		{
+			"name": "matrixNano",
+			"path": "../../matrixNano"
+		},
+		{
+			"name": "wsmatrixbt",
+			"path": "../../wsmatrixbt"
+		},
+		{
+			"name": "gasEsp",
+			"path": "../../../../../../../media/eduardo/Nuevo vol/PlatformIO/Projects/gasEsp"
+		},
+		{
+			"name": "AlarmRElay",
+			"path": "../../AlarmRElay"
+		},
+		{
+			"name": "NodeAlarm",
+			"path": "../../../NodeAlarm"
+		},
+		{
+			"name": "Temp",
+			"path": "../../../../../../../media/eduardo/Nuevo vol/PlatformIO/Projects/Temp"
+		},
+		{
+			"name": "temp4",
+			"path": "../../temp4"
+		},
+		{
+			"name": "Cuartofrio",
+			"path": "../../../../../../../media/eduardo/Nuevo vol/PlatformIO/Projects/Cuartofrio"
+		},
+		{
+			"name": "cuartofrioslave",
+			"path": "../../../../../../../media/eduardo/Nuevo vol/PlatformIO/Projects/cuartofrioslave"
+		},
+		{
+			"name": "ff",
+			"path": "../../../../../../../media/eduardo/Nuevo vol/PlatformIO/Projects/ff"
+		},
+		{
+			"name": "domotica Cortinas",
+			"path": "../../domotica Cortinas"
+		},
+		{
+			"name": "alexa",
+			"path": "../../../../../../../media/eduardo/Nuevo vol/PlatformIO/Projects/alexa"
+		},
+		{
+			"name": "medidorNodeMCU",
+			"path": "../../medidorNodeMCU"
+		},
+		{
+			"name": "wifiRelay",
+			"path": "../../../../../../../media/eduardo/Nuevo vol/PlatformIO/Projects/wifiRelay"
+		},
+		{
+			"name": "WifimoduleEsp01",
+			"path": "../../../../../../../media/eduardo/Nuevo vol/PlatformIO/Projects/WifimoduleEsp01"
+		},
+		{
+			"name": "nanoMEdidorIOT",
+			"path": "../../nanoMEdidorIOT"
+		},
+		{
+			"name": "ws2",
+			"path": "../../ws2"
+		},
+		{
+			"name": "esp32IDE",
+			"path": "../../esp32IDE"
+		},
+		{
+			"name": "sleepMode",
+			"path": "../../sleepMode"
+		},
+		{
+			"name": "projectD",
+			"path": "../../../../../projectD"
+		},
+		{
+			"name": "esp32m",
+			"path": ".."
+		},
+		{
+			"name": "mqtt",
+			"path": "../../mqtt"
+		},
+		{
+			"name": "rpmMetter",
+			"path": "../../../../../../../media/eduardo/Nuevo vol/PlatformIO/Projects/rpmMetter"
+		},
+		{
+			"name": "nodemSerial.",
+			"path": "../../nodemSerial."
+		},
+		{
+			"name": "fingerprint",
+			"path": "../../fingerprint"
+		},
+		{
+			"path": "../../../../../../../media/eduardo/Nuevo vol/PlatformIO/Projects/fpmnew"
+		},
+		{
+			"path": "../../../../../../../opt/lampp/htdocs/biometricattendancev2"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"*.erb": "html",
+			"*.ipp": "cpp",
+			"array": "cpp",
+			"string": "cpp",
+			"string_view": "cpp",
+			"functional": "cpp",
+			"typeinfo": "cpp",
+			"bitset": "cpp",
+			"algorithm": "cpp",
+			"*.tcc": "cpp",
+			"deque": "cpp",
+			"list": "cpp",
+			"unordered_map": "cpp",
+			"vector": "cpp",
+			"initializer_list": "cpp",
+			"regex": "cpp",
+			"random": "cpp",
+			"*.tpp": "cpp"
+		},
+		"liveServer.settings.multiRootWorkspaceName": "ws2",
+		"platformio-ide.activateOnlyOnPlatformIOProject": true
+	}
+}
