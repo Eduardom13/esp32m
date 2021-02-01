@@ -831,8 +831,8 @@ void setup(void)
   FastLED.setBrightness(BRIGHTNEES);
   leds[0] = CRGB::Black;
   FastLED.show();
-  pinMode(27, INPUT);
-  esp_sleep_enable_ext0_wakeup(GPIO_NUM_27, 1); //1 = High, 0 = Low
+  pinMode(23, INPUT);
+  esp_sleep_enable_ext0_wakeup(GPIO_NUM_23, 1); //1 = High, 0 = Low
   Sprint("Inicio\n");
   print_wakeup_reason();
 
@@ -842,9 +842,21 @@ void setup(void)
     delay(1000000);
   }
 
-  if (digitalRead(27))
+  if (digitalRead(23))
   {
-    Sprint("Reinicio\n");
+    int timeout=15;
+    while (digitalRead(RESET_15SEG) && timeout )
+    {
+      leds[0] = CRGB::Red;
+      FastLED.show();
+      delay(500);
+      leds[0] = CRGB::Black;
+      FastLED.show();
+      delay(500);
+      timeout--;
+    }
+    if(timeout==0){
+      Sprint("Reinicio\n");
     for (int i = 0; i < 512; i++)
     {
       EEPROM.write(i, 0);
@@ -852,11 +864,13 @@ void setup(void)
     EEPROM.commit();
 
     ledBlink(255, 0, 0);
-
+  
     leds[0] = CRGB::Red;
     FastLED.show();
     delay(2000);
     ESP.restart();
+    }
+    
   }
 
   Serial.setDebugOutput(true);
